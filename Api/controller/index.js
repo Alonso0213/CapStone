@@ -45,6 +45,10 @@ routes.patch("/user/:id", bodyParser.json(), (req, res) => {
 routes.delete("/user/:id", (req, res) => {
     users.deleteUser(req, res);
 });
+routes.post("/login", bodyParser.json(), (req, res) => {
+    users.login(req, res);
+  });
+  
 
 routes.get("/bookings", (req, res)=>{
     bookings.fetchBookings(req, res)
