@@ -1,17 +1,21 @@
 <template>
-  <div class="home">
+ <body>
+   <loginNavComp/>
     <h2>Home</h2>
-  </div>
+ </body>
+   
+  
 </template>
 
 <script>
 
 
+import loginNavComp from '../components/loginNavComp.vue'
 
 export default {
-  name: '',
+
   components: {
-    
+    loginNavComp
   }
 }
 </script>
