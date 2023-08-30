@@ -1,9 +1,8 @@
 <template>
   <div>
-  <router-view/>
-  <FooterComp/>
-</div>
-  
+    <router-view />
+    <FooterComp />
+  </div>
 </template>
 
 <style>
@@ -13,12 +12,10 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  
 }
 
 nav {
   padding: 30px;
-
 }
 
 nav a {
@@ -33,10 +30,10 @@ nav a.router-link-exact-active {
 </style>
 
 <script>
-import FooterComp from '@/components/FooterComp.vue';
-export default{
-  components:{
-    FooterComp
-  }
-}
+import FooterComp from "@/components/FooterComp.vue";
+export default {
+  components: {
+    FooterComp,
+  },
+};
 </script>

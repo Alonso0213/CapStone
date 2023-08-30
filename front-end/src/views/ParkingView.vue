@@ -1,15 +1,18 @@
 <template>
-    <div>
-<h2>Parking</h2>
-    </div>
+  <div>
+    <navComp />
+    <h2>Parking</h2>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import navComp from "@/components/navComp.vue";
+
+export default {
+  components: {
+    navComp,
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,8 +1,8 @@
 <template>
-  <body>
+  <div>
     <navComp />
-    <h2>Home</h2>
-  </body>
+    <h2>Checkout</h2>
+  </div>
 </template>
 
 <script>
@@ -14,3 +14,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>

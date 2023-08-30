@@ -1,15 +1,20 @@
 <template>
-    <div>
-<h2>Login</h2>
-    </div>
+  <div>
+    <loginNavComp/>
+    <h2>Login</h2>
+    <loginFormComp />
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import loginFormComp from "@/components/loginFormComp.vue";
+import loginNavComp from "@/components/loginNavComp.vue";
+export default {
+  components: {
+    loginFormComp,
+    loginNavComp
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
