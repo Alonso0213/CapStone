@@ -2,7 +2,7 @@ const {express, routes} = require("./controller")
 const app = express()
 const path = require("path")
 const cors = require("cors")
-const errorHandeling = require("./middleware/errorHandling.js")
+const errorHandeling = require("./middleware/error-handling.js")
 const cookieParser = require("cookie-parser")
 const port = +process.env.PORT || 3000
 
@@ -26,12 +26,12 @@ app.use(
     routes
 )
 
-routes.get("^/$|/limitless", (req, res)=>{
-    res.sendFile(path.resolve(__dirname, "./static/HTML/index.html"))
+routes.get("^/$|/Parkspace", (req, res)=>{
+    res.sendFile(path.resolve(__dirname, "./static/html/index.html"))
 })
 
 app.use(errorHandeling)
 
 app.listen(port, ()=>{
-    console.log(`The server is running on port : ${port}`);
+    console.log(`The server is running on port : ${port}🖖`);
 })
