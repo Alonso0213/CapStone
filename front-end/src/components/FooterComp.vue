@@ -80,6 +80,7 @@ img {
   height: 5rem;
   border-radius: 6rem;
   transition: all 0.3s ease-in-out;
+  margin-right: 20px;
 }
 img:hover {
   transform: scale(1.5);

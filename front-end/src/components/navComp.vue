@@ -24,6 +24,7 @@
             <router-link to="/about">About</router-link>
             <router-link to="/parking">Parking</router-link>
             <router-link to="/checkout">Checkout</router-link>
+            <router-link to="/contact">Contact</router-link>
             <router-link to="/login">login</router-link>
           </li>
         </ul>
