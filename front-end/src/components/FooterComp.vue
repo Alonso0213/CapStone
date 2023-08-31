@@ -47,7 +47,6 @@
   </footer>
 </template>
 
-
 <script>
 export default {};
 </script>
@@ -73,7 +72,7 @@ export default {};
   margin-left: 20px;
   margin-top: -20px;
   width: 200px;
-  color:rgba(245, 245, 245, 0.936);
+  color: rgba(245, 245, 245, 0.936);
 }
 
 img {

@@ -1,7 +1,7 @@
 <template>
   <div class="about">
-    <navComp />
-    <h1>This is an about page</h1>
+    <navComp/>
+    <h2>About</h2>
   </div>
 </template>
 <script>

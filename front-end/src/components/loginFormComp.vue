@@ -26,7 +26,7 @@
               </div>
 
               <div class="input-field button">
-                <input type="button" value="Login" @click="validate()"/>
+                <input type="button" value="Login" @click="validate()" />
               </div>
             </form>
 

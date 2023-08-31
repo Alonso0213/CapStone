@@ -40,8 +40,9 @@ export default createStore({
       state.postData = data;
     },
     setSearch(state, letter) {
-      state.filteredProducts = state.products.filter(product =>
-        product.prodName.charAt(0).toLowerCase() === letter.toLowerCase()
+      state.filteredProducts = state.products.filter(
+        (product) =>
+          product.prodName.charAt(0).toLowerCase() === letter.toLowerCase()
       );
     },
     SortName(state) {
@@ -137,10 +138,7 @@ export default createStore({
     },
     async ConfimEditUser(context, adduser) {
       try {
-        const res = await axios.patch(
-          `${Api}user/${adduser.userID}`,
-          adduser
-        );
+        const res = await axios.patch(`${Api}user/${adduser.userID}`, adduser);
         context.commit("setPostData", res.data);
         console.log(res.data);
       } catch (e) {
@@ -149,9 +147,9 @@ export default createStore({
     },
     async searchProducts(context, searchTerm) {
       try {
-        const res = await fetch(`${Api}products/${prodName}=${searchTerm}`)
-        const data = await res.json()
-        context.commit("setSearch", data.res)
+        const res = await fetch(`${Api}products/${prodName}=${searchTerm}`);
+        const data = await res.json();
+        context.commit("setSearch", data.res);
       } catch (e) {
         console.log("Error");
       }
@@ -172,8 +170,6 @@ export default createStore({
         context.commit("setMsg", "An Error has occured😒");
       }
     },
-
-
   },
   getters: {
     filteredProducts(state) {
