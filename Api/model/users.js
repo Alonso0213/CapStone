@@ -94,6 +94,7 @@ class Users {
     if (data.userPass) {
       data.userPass = hashSync(data.userPass, 15);
     }
+    
     const query = `
         UPDATE users
         SET ?
