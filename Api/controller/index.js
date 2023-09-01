@@ -7,6 +7,7 @@ const {verifyAToken} = require("../middleware/authentication")
 routes.get("/parkings", (req, res)=>{
     parking.fetchParkings(req, res)
 })
+
 routes.get("/parking/:id", (req, res)=>{
     parking.fetchParking(req, res)
 })
