@@ -1,13 +1,13 @@
 import { createStore } from "vuex";
 import axios from "axios";
-const Api = "";
+const Api = "https://capstone-swpm.onrender.com/";
 
 export default createStore({
   state: {
     users: null,
     user: null,
-    products: null,
-    product: null,
+    parkings: null,
+    parking: null,
     spinner: false,
     token: null,
     msg: null,
@@ -20,12 +20,12 @@ export default createStore({
     },
     setUser(state, user) {
       state.user = user;
+    }, 
+    setParkings(state, parkings) {
+      state.parkings = parkings;
     },
-    setProducts(state, products) {
-      state.products = products;
-    },
-    setProduct(state, product) {
-      state.product = product;
+    setParking(state, parking) {
+      state.parking = parking;
     },
     setSpinner(state, value) {
       state.spinner = value;
@@ -62,35 +62,35 @@ export default createStore({
         context.commit("setMsg", "An Error has occured😒");
       }
     },
-    async fetchProducts(context) {
+    async fetchParkings(context) {
       try {
-        const { data } = await axios.get(`${Api}products`);
-        context.commit("setProducts", data.results);
+        const { data } = await axios.get(`${Api}parkings`);
+        context.commit("setParkings", data.results);
       } catch (e) {
         context.commit("setMsg", "An Error has occured😒");
       }
     },
-    async fetchftProducts(context) {
+    async fetchftParkingss(context) {
       try {
-        const { data } = await axios.get(`${Api}products?limit=4`);
-        context.commit("setProducts", data.results);
+        const { data } = await axios.get(`${Api}parkings?limit=4`);
+        context.commit("setParkings", data.results);
       } catch (e) {
         context.commit("setMsg", "An Error has occured😒");
       }
     },
-    async fetchProducts(context) {
+    async fetchParkings(context) {
       try {
-        const { data } = await axios.get(`${Api}products`);
-        context.commit("setProducts", data.results);
+        const { data } = await axios.get(`${Api}parkings`);
+        context.commit("setParkings", data.results);
       } catch (e) {
         context.commit("setMsg", "An Error has occured😒");
       }
     },
-    async deleteProd(context, prodID) {
+    async deleteParking(context, prodID) {
       try {
-        const { data } = await axios.delete(`${Api}product/${prodID}`);
+        const { data } = await axios.delete(`${Api}parking/${prodID}`);
         if (data.msg) {
-          context.dispatch("fetchProducts");
+          context.dispatch("fetchParkings");
         }
       } catch (e) {
         context.commit("setMsg", "An error occurred.");
@@ -108,7 +108,7 @@ export default createStore({
     },
     async ConfimAddprod({ commit }, addprod) {
       try {
-        const res = await axios.post(`${Api}product`, addprod);
+        const res = await axios.post(`${Api}parking`, addprod);
         commit("setPostData", res.data);
         console.log(res.data);
       } catch (e) {
@@ -127,7 +127,7 @@ export default createStore({
     async ConfimEditProd(context, editprod) {
       try {
         const res = await axios.patch(
-          `${Api}product/${editprod.prodID}`,
+          `${Api}parking/${editprod.prodID}`,
           editprod
         );
         context.commit("setPostData", res.data);
@@ -138,16 +138,16 @@ export default createStore({
     },
     async ConfimEditUser(context, adduser) {
       try {
-        const res = await axios.patch(`${Api}user/${adduser.userID}`, adduser);
+        const res = await axios.patch(`${Api}parking/${adduser.userID}`, adduser);
         context.commit("setPostData", res.data);
         console.log(res.data);
       } catch (e) {
         console.log(err);
       }
     },
-    async searchProducts(context, searchTerm) {
+    async searchParkings(context, searchTerm) {
       try {
-        const res = await fetch(`${Api}products/${prodName}=${searchTerm}`);
+        const res = await fetch(`${Api}parkings/${prodName}=${searchTerm}`);
         const data = await res.json();
         context.commit("setSearch", data.res);
       } catch (e) {
@@ -156,7 +156,7 @@ export default createStore({
     },
     async FilterName(context) {
       try {
-        const { data } = await axios.get(`${Api}products`);
+        const { data } = await axios.get(`${Api}parkings`);
         context.commit("SortName", data.results);
       } catch (e) {
         context.commit("setMsg", "An Error has occured😒");
@@ -164,7 +164,7 @@ export default createStore({
     },
     async FilterPrice(context) {
       try {
-        const { data } = await axios.get(`${Api}products`);
+        const { data } = await axios.get(`${Api}parkings`);
         context.commit("SortPrice", data.results);
       } catch (e) {
         context.commit("setMsg", "An Error has occured😒");
@@ -172,7 +172,7 @@ export default createStore({
     },
   },
   getters: {
-    filteredProducts(state) {
+    filteredParkings(state) {
       return state.searchResults;
     },
   },

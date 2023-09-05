@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navComp/>
    <router-view />
     <FooterComp />
   </div>
@@ -31,9 +32,12 @@ nav a.router-link-exact-active {
 
 <script>
 import FooterComp from "@/components/FooterComp.vue";
+import navComp from "./components/navComp.vue"
 export default {
   components: {
-    FooterComp,
+    navComp,
+    FooterComp
+
   },
 };
 </script>

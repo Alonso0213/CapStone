@@ -1,16 +1,16 @@
 <template>
   <div>
-    <navComp />
+    
     <h2>Checkout</h2>
   </div>
 </template>
 
 <script>
-import navComp from "@/components/navComp.vue";
+
 
 export default {
   components: {
-    navComp,
+    
   },
 };
 </script>
