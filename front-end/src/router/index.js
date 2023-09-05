@@ -41,7 +41,12 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: () => import('../views/AdminView.vue')
-  }
+  },
+  {
+    path: '/single/:id?',
+    name: 'singlePage',
+    component: () => import('../views/singleView.vue')
+  },
 ]
 
 const router = createRouter({

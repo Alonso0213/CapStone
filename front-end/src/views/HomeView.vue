@@ -1,6 +1,6 @@
 <template>
   <body>
-    <navComp/>
+    
     <h2>Home</h2>
     <div>
       <p>Why look for a parking spot when you got a car park booking system</p>
@@ -9,11 +9,9 @@
 </template>
 
 <script>
-import navComp from "@/components/navComp.vue";
 
 export default {
   components: {
-    navComp,
   },
 };
 </script>

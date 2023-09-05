@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loginNavComp/>
+   
     <h2>Login</h2>
     <loginFormComp />
   </div>
@@ -8,11 +8,10 @@
 
 <script>
 import loginFormComp from "@/components/loginFormComp.vue";
-import loginNavComp from "@/components/loginNavComp.vue";
 export default {
   components: {
     loginFormComp,
-    loginNavComp
+
   },
 };
 </script>
