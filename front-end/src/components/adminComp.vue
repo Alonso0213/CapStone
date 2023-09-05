@@ -3,30 +3,28 @@
       <h2>Parking List</h2>
       <div class="table table-responsive-xxl">
         <table
-          class="table border-info table-striped table-hover table-bordered bg-danger-subtle"
+          class="table border-info  table-dark table-hover table-bordered bg-danger-subtle"
         >
           <thead>
             <tr>
               <th scope="col">ID:</th>
               <th scope="col">Parking number:</th>
-              <th scope="col">Quantity:</th>
               <th scope="col">Image:</th>
               <th scope="col">Amount:</th>
               <th scope="col">Edit/Delete:</th>
             </tr>
           </thead>
-          <tbody v-for="product in products" id="display-items" :key="product.prodID">
+          <tbody v-for="parking in parkings" id="display-items" :key="parking.parkingID">
             <tr>
-              <td>{{ product.prodID }}</td>
-              <td>{{ product.prodName }}</td>
-              <td>{{ product.quantity }}</td>
-              <td><img class="pic" :src="product.prodUrl" alt="img" /></td>
-              <td>£{{ product.amount }}</td>
+              <td>{{ parking.parkingID }}</td>
+              <td>{{ parking.parkingNum }}</td>
+              <td><img class="pic" :src="parking.parkingImg" alt="img" loading="lazy"/></td>
+              <td>R{{ parking.price }}</td>
               <td>
-                <router-link :to="{ name: 'editprod', params: { id: product.prodID } }"
+                <router-link :to="{ name: 'editparking', params: { id: parking.parkingID } }"
                  class="btn btn-info" >edit</router-link
                 >
-                <button @click="confirmDelete(product.prodID)" class="del btn btn-warning">Delete</button>
+                <button @click="confirmDelete(parking.parkingID)" class="del btn btn-warning">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -57,7 +55,7 @@
               <td><img class="pic" :src="user.userProfile" alt="img" /></td>
               <td>{{ user.emailAdd }}</td>
               <td><router-link :to="{ name: 'edituser', params: { id: user.userID } }"
-                  class="del btn btn-info"  >edit</router-link
+                  class="del btn btn-info">edit</router-link
                 >
               <button @click="confirmDeleteU(user.userID)" class="btn btn-warning">Delete</button></td>
             </tr>
@@ -86,9 +84,9 @@
       confirmDelete(prodID) {
         if (confirm("Please confirm")) {
           try {
-            this.$store.dispatch("deleteProd", prodID);
+            this.$store.dispatch("deleteParking", prodID);
           } catch (e) {
-            console.log("Error deleting product:");
+            console.log("Error deleting parking:");
           }
         }
       },
@@ -98,12 +96,12 @@
       users() {
         return this.$store.state.users;
       },
-      products() {
-        return this.$store.state.products;
+      parkings() {
+        return this.$store.state.parkings;
       },
     },
     mounted() {
-      this.$store.dispatch("fetchProducts");
+      this.$store.dispatch("fetchParkings");
       this.$store.dispatch("fetchUsers");
     },
   };
@@ -120,5 +118,8 @@
   .del:hover {
     background-color: red;
     color: black;
+  }
+  .del{
+    background-color: rgb(5, 5, 253);
   }
   </style>

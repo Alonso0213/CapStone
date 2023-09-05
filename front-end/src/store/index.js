@@ -70,14 +70,6 @@ export default createStore({
         context.commit("setMsg", "An Error has occured😒");
       }
     },
-    async fetchftParkingss(context) {
-      try {
-        const { data } = await axios.get(`${Api}parkings?limit=4`);
-        context.commit("setParkings", data.results);
-      } catch (e) {
-        context.commit("setMsg", "An Error has occured😒");
-      }
-    },
     async fetchParkings(context) {
       try {
         const { data } = await axios.get(`${Api}parkings`);
@@ -106,7 +98,7 @@ export default createStore({
         context.commit("setMsg", "An error occurred.");
       }
     },
-    async ConfimAddprod({ commit }, addprod) {
+    async ConfimAddparking({ commit }, addprod) {
       try {
         const res = await axios.post(`${Api}parking`, addprod);
         commit("setPostData", res.data);
@@ -124,7 +116,7 @@ export default createStore({
         console.error(err);
       }
     },
-    async ConfimEditProd(context, editprod) {
+    async ConfimEditParking(context, editprod) {
       try {
         const res = await axios.patch(
           `${Api}parking/${editprod.prodID}`,

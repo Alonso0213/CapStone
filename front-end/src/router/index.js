@@ -47,6 +47,29 @@ const routes = [
     name: 'singlePage',
     component: () => import('../views/singleView.vue')
   },
+  {
+    path: "/addparking",
+    name: "addparking",
+    component: () => import("../views/AddView.vue")
+  },
+  {
+    path: "/adduser",
+    name: "adduser",
+    component: () => import("../views/addUserView.vue")
+  },
+  {
+    path: "/editparking/:id",
+    name: "editparking",
+    component: () => import("../views/editView.vue"),
+    props: true
+  },
+  {
+    path: "/edituser/:id",
+    name: "edituser",
+    component: () => import("../views/editUserView.vue"),
+    props: true
+  }
+
 ]
 
 const router = createRouter({
