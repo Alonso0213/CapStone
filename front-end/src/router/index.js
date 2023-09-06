@@ -60,8 +60,8 @@ const routes = [
   {
     path: "/editparking/:id",
     name: "editparking",
-    component: () => import("../views/editView.vue"),
-    props: true
+    props: true,
+    component: () => import("../views/editView.vue")
   },
   {
     path: "/edituser/:id",
