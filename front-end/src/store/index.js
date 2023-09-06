@@ -20,7 +20,7 @@ export default createStore({
     },
     setUser(state, user) {
       state.user = user;
-    }, 
+    },
     setParkings(state, parkings) {
       state.parkings = parkings;
     },
@@ -116,11 +116,11 @@ export default createStore({
         console.error(err);
       }
     },
-    async ConfimEditParking(context, editprod) {
+    async ConfimEditParking(context, editparking) {
       try {
         const res = await axios.patch(
-          `${Api}parking/${editprod.prodID}`,
-          editprod
+          `${Api}parking/${editparking.parkingID}`,
+          editparking
         );
         context.commit("setPostData", res.data);
         console.log(res.data);
@@ -130,7 +130,7 @@ export default createStore({
     },
     async ConfimEditUser(context, adduser) {
       try {
-        const res = await axios.patch(`${Api}parking/${adduser.userID}`, adduser);
+        const res = await axios.patch(`${Api}user/${adduser.userID}`, adduser);
         context.commit("setPostData", res.data);
         console.log(res.data);
       } catch (e) {

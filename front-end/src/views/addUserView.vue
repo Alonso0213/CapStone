@@ -38,6 +38,7 @@
         methods: {
             ConfimAddU() {
                 this.$store.dispatch("ConfimAdduser", this.adduser)
+                alert("New user has been added")
             }
         }
         
