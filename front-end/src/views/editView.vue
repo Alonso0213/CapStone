@@ -4,7 +4,7 @@
       
      <center><form @submit.prevent="EditParking">
         <input v-model="editparking.parkingID" type="text" placeholder="ParkingID" class="form-control" /><br>
-        <input v-model="editparking.parkingNum" type="text" placeholder="Parking number" class="form-control" /><br>
+        <input v-model="editparking.parkingNum" type="number" placeholder="Parking number" class="form-control" /><br>
         <input v-model="editparking.parkingImg" type="text" placeholder="Image URL" class="form-control"/><br>
         <input v-model="editparking.price" type="number" placeholder="Price" class="form-control"/><br>
         <div>
@@ -30,7 +30,8 @@
     props: ["id"],
     methods: {
       EditParking() {
-        this.$store.dispatch("ConfimEditParking", this.editparking);
+              this.$store.dispatch("ConfimEditParking", this.editparking);
+        alert("Parking space updated")
       },
     },
   };

@@ -80,7 +80,8 @@ export default {
   props: ["id"],
   methods: {
     EditConfirm() {
-      this.$store.dispatch("ConfimEditUser", this.adduser);
+          this.$store.dispatch("ConfimEditUser", this.adduser);
+      alert("user updated")
     },
   },
 };
