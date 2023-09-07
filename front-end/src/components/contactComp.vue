@@ -2,17 +2,26 @@
   <div class="main">
     <body>
       <div class="login-box">
-  <h2>Login</h2>
-  <form @submit.prevent="login">
+  <h2>Contact us</h2>
+  <form  action="https://formspree.io/f/mqkvbwjy"
+  method="POST">
     <div class="user-box">
-      <input type="email" name="" v-model="payload.emailAdd" required>
-      <label>Email</label>
+      <input type="text" name="message" required="">
+      <label>FirstName</label>
+    </div>
+     <div class="user-box">
+      <input type="text" name="message" required="">
+      <label>LastName</label>
+    </div>
+     <div class="user-box">
+      <input type="email" name="email" required="">
+      <label>E-mail</label>
     </div>
     <div class="user-box">
-      <input type="password" name="" v-model="payload.userPass" required>
-      <label>Password</label>
+      <input name="message" required="">
+      <label>Message</label>
     </div>
-     <button class="btn btn-primary" type="submit">
+    <button class="btn" type="submit">
       <span></span>
       <span></span>
       <span></span>
@@ -26,29 +35,15 @@
 </template>
 
 <script>
-export default {
-  data() {
-        return {
-            payload: {
-                emailAdd: "",
-                userPass: ""
-            }
-        }
-    },
-  methods: {
-    login() {
-        this.$store.dispatch('LoginUser', this.payload)
-      }
-  },
-  beforeCreate() {
-      this.$store.dispatch('fetchUsers')
-    }
-};
+export default {};
 </script>
 
 <style scoped>
+.btn{
+    background-color: blue;
+}
 .main{
-  height: 69vh;
+  height: 90vh;
   background-color: #141e30;
 }
 html {
@@ -63,7 +58,7 @@ body {
 
 .login-box {
   position: absolute;
-  top: 45%;
+  top: 55%;
   left: 50%;
   width: 400px;
   padding: 40px;
@@ -115,7 +110,7 @@ body {
   font-size: 12px;
 }
 
-.login-box form a {
+.login-box form button {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -129,7 +124,7 @@ body {
   letter-spacing: 4px
 }
 
-.login-box a:hover {
+.login-box button:hover {
   background: #03e9f4;
   color: #fff;
   border-radius: 5px;
@@ -139,11 +134,11 @@ body {
               0 0 100px #03e9f4;
 }
 
-.login-box a span {
+.login-box button span {
   position: absolute;
   display: block;
 }
-.login-box a span:nth-child(1) {
+.login-box button span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -159,7 +154,7 @@ body {
     left: 100%;
   }
 }
-.login-box a span:nth-child(2) {
+.login-box button span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -178,7 +173,7 @@ body {
   }
 }
 
-.login-box a span:nth-child(3) {
+.login-box button span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -197,7 +192,7 @@ body {
   }
 }
 
-.login-box a span:nth-child(4) {
+.login-box button span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;

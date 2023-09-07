@@ -2,17 +2,33 @@
   <div class="main">
     <body>
       <div class="login-box">
-  <h2>Login</h2>
-  <form @submit.prevent="login">
+  <h2>Register</h2>
+  <form @submit.prevent="registration">
     <div class="user-box">
-      <input type="email" name="" v-model="payload.emailAdd" required>
-      <label>Email</label>
+      <input type="text" name="" v-model="payload.firstName" required>
+      <label>FirstName</label>
+    </div>
+     <div class="user-box">
+      <input type="text" name="" v-model="payload.lastName" required>
+      <label>LastName</label>
+    </div>
+     <div class="user-box">
+      <input type="text" name="" v-model="payload.userAge" required>
+      <label>Age</label>
+    </div>
+     <div class="user-box">
+      <input type="text" name="" v-model="payload.userProfile" required>
+      <label>Profile-URL</label>
+    </div>
+     <div class="user-box">
+      <input type="text" name="" v-model="payload.emailAdd" required>
+      <label>E-mail</label>
     </div>
     <div class="user-box">
       <input type="password" name="" v-model="payload.userPass" required>
       <label>Password</label>
     </div>
-     <button class="btn btn-primary" type="submit">
+    <button class="btn btn-primary" type="submit">
       <span></span>
       <span></span>
       <span></span>
@@ -27,28 +43,29 @@
 
 <script>
 export default {
-  data() {
+    data() {
         return {
             payload: {
+                firstName: "",
+                lastName: "",
+                userAge: "",
+                userProfile: "",
                 emailAdd: "",
                 userPass: ""
             }
         }
     },
-  methods: {
-    login() {
-        this.$store.dispatch('LoginUser', this.payload)
-      }
-  },
-  beforeCreate() {
-      this.$store.dispatch('fetchUsers')
+    methods: {
+        registration(){
+            this.$store.dispatch('RegisterUser', this.payload)
+        }
     }
 };
 </script>
 
 <style scoped>
 .main{
-  height: 69vh;
+  height: 120vh;
   background-color: #141e30;
 }
 html {
@@ -63,7 +80,7 @@ body {
 
 .login-box {
   position: absolute;
-  top: 45%;
+  top: 70%;
   left: 50%;
   width: 400px;
   padding: 40px;
