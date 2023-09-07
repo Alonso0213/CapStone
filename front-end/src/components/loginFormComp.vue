@@ -126,7 +126,6 @@ body {
   position: absolute;
   display: block;
 }
-
 .login-box a span:nth-child(1) {
   top: 0;
   left: -100%;
@@ -135,7 +134,6 @@ body {
   background: linear-gradient(90deg, transparent, #03e9f4);
   animation: btn-anim1 1s linear infinite;
 }
-
 @keyframes btn-anim1 {
   0% {
     left: -100%;
@@ -144,7 +142,6 @@ body {
     left: 100%;
   }
 }
-
 .login-box a span:nth-child(2) {
   top: -100%;
   right: 0;
