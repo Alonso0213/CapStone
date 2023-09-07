@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
 <div class="loading-spinner">
     <img src="https://media.tenor.com/aLgQw5HZ2pMAAAAi/dazzle-car-detailing.gif" alt="spinner" loading="lazy">
 </div>
@@ -24,5 +24,7 @@ img{
     border-radius: 7rem;
     
 }
-
+.main{
+    height: 50vh;
+}
 </style>

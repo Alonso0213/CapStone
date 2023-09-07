@@ -1,6 +1,12 @@
 import { createStore } from "vuex";
 import axios from "axios";
 const Api = "https://capstone-swpm.onrender.com/";
+import router from "@/router";
+import sweet from "sweetalert";
+import { useCookies } from "vue3-cookies";
+import authUser from "@/services/AuthenticateUser";
+const { cookies } = useCookies();
+
 
 export default createStore({
   state: {
@@ -162,6 +168,59 @@ export default createStore({
         context.commit("setMsg", "An Error has occured😒");
       }
     },
+    async RegisterUser(context, payload) {
+      try {
+        const { msg } = (await axios.post(`${Api}user`, payload)).data;
+        if (msg) {
+          sweet({
+            title: "Registration",
+            text: msg,
+            icon: "success",
+            timer: 5000,
+          });
+          context.dispatch("fetchUsers");
+          router.push({ name: "login" });
+        } else {
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 5000,
+          });
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    async LoginUser(context, payload) {
+      try {
+        const { msg, token, result } = (
+          await axios.post(`${Api}login`, payload)
+        ).data;
+        if (result) {
+          context.commit(`setUsers`, { result, msg });
+          cookies.set("LegitUser", { token, msg, result });
+          authUser.applyToken(token);
+          sweet({
+            title: msg,
+            text: `Welcome back ${result?.firstName}
+            ${result?.lastName}`,
+            icon: "success",
+            timer: 5000,
+          });
+          router.push({ name: "home" });
+        } else {
+          sweet({
+            title: "Error",
+            text: msg,
+            icon: "error",
+            timer: 5000,
+          });
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
   },
   getters: {
     filteredParkings(state) {

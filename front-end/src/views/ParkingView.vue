@@ -22,6 +22,7 @@ background: url(https://images.pexels.com/photos/5182301/pexels-photo-5182301.jp
 background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 h2{
   color: white;

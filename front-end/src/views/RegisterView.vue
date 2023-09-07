@@ -1,11 +1,17 @@
 <template>
   <div>
-    <h2>Register</h2>
+   <registerComp/>
+    
   </div>
 </template>
 
 <script>
-export default {};
+import registerComp from "../components/registerComp.vue"
+export default {
+  components: {
+    registerComp
+  }
+};
 </script>
 
 <style scoped></style>
