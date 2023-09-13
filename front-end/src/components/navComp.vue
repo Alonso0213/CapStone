@@ -26,6 +26,7 @@
             
             <router-link to="/contact">Contact</router-link>
             <router-link to="/admin">Admin</router-link>
+            <router-link to="/singleUser">user</router-link>
           </li>
         </ul>
         <div class="d-flex" id="side">

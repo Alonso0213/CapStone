@@ -52,7 +52,7 @@ p{
   color: white;
 }
 .main{
-  height: 69vh;
+  height: 100vh;
   background-color: #141e30;
 }
 html {
@@ -67,7 +67,7 @@ body {
 
 .login-box {
   position: absolute;
-  top: 48%;
+  top: 60%;
   left: 50%;
   width: 400px;
   padding: 40px;
@@ -226,7 +226,7 @@ body {
    
   .login-box {
   position: absolute;
-  top: 45%;
+  top: 97%;
   left: 50%;
   width: 400px;
   padding: 40px;
@@ -235,6 +235,10 @@ body {
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
+}
+.main{
+  height: 150vh;
+  background-color: #141e30;
 }
   }
 

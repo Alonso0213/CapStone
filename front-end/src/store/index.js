@@ -7,7 +7,6 @@ import { useCookies } from "vue3-cookies";
 import authUser from "@/services/AuthenticateUser";
 const { cookies } = useCookies();
 
-
 export default createStore({
   state: {
     users: null,
@@ -52,7 +51,7 @@ export default createStore({
       );
     },
     SortName(state) {
-      state.parkings.sort((a, b) => a.parkingNum - b.parkingNum );
+      state.parkings.sort((a, b) => a.parkingNum - b.parkingNum);
     },
     SortPrice(state) {
       state.parkings.sort((a, b) => a.price - b.price);
@@ -199,6 +198,7 @@ export default createStore({
         ).data;
         if (result) {
           context.commit(`setUsers`, { result, msg });
+          localStorage.setItem("user", JSON.stringify(result));
           cookies.set("LegitUser", { token, msg, result });
           authUser.applyToken(token);
           sweet({
@@ -222,12 +222,10 @@ export default createStore({
       }
     },
     Logout(context) {
-      
-      context.commit("setUser")
-      cookies.remove('LegitUser')
-      localStorage.removeItem('user')
-    }
-
+      context.commit("setUser");
+      cookies.remove("LegitUser");
+      localStorage.removeItem("user");
+    },
   },
   getters: {
     filteredParkings(state) {

@@ -108,7 +108,7 @@
           <p>{{ park.parkingID }}</p>
         </h3> -->
 
-      <section id="content3" class="tab-content">
+      <section id="content3" class="tab-content container fluid">
         <h4 class="payment-title">Choose your payment method</h4>
         <form action="" method="post">
           <div class="pymt-radio">
@@ -414,8 +414,7 @@ label:hover {
   width: 100%;
 }
 
-.payment-padding-right {
-}
+
 .select-icon {
   display: table-cell;
   vertical-align: top;
@@ -588,6 +587,11 @@ p.credit {
   @media (width <= 390px) {
    .tab_container{
     width:75%;
+   }
+  }
+   @media (width <= 375px) {
+   .input[data-v-1ab4eb05]{
+    width: 95%;
    }
   }
 </style>
