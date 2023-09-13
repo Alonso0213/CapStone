@@ -19,8 +19,7 @@
   
         <div class="card-footer text-body-secondary">
           <router-link to="/parking" class="btn btn-primary">Back</router-link>
-          <br /><br />
-          <button class="btn btn-primary">Purchase</button>
+          <br />
         </div>
       </div>
     </body>
@@ -28,7 +27,22 @@
   </template>
   
   <script>
-  export default {};
+  export default {
+    data: () => {
+        return {
+        cart:[],
+      }
+    },
+    methods: {
+        Add2Cart(parkings) {
+        console.log($route.query.name);
+        this.cart.push(parkings)
+        console.log(this.cart);
+      }
+    }
+  };
   </script>
   
   <style scoped></style>
+
+  

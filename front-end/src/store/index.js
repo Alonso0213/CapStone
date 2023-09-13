@@ -52,10 +52,10 @@ export default createStore({
       );
     },
     SortName(state) {
-      state.products.sort((a, b) => a.prodName.localeCompare(b.prodName));
+      state.parkings.sort((a, b) => a.parkingNum - b.parkingNum);
     },
     SortPrice(state) {
-      state.products.sort((a, b) => a.amount - b.amount);
+      state.parkings.sort((a, b) => a.price - b.price);
     },
   },
 
@@ -220,7 +220,14 @@ export default createStore({
       } catch (e) {
         console.log(e);
       }
+    },
+    Logout(context) {
+      
+      context.commit("setUser")
+      cookies.remove('LegitUser')
+      localStorage.removeItem('user')
     }
+
   },
   getters: {
     filteredParkings(state) {
