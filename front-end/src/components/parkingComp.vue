@@ -19,7 +19,7 @@
     <div class="container-fluid">
       <div class="row" v-if="parkings">
         <div class="col" v-for="parking in parkings" :key="parking.parkingID">
-          <div class="card border-danger" style="width: 18rem">
+          <div class="card " style="width: 18rem">
             <img
               :src="parking.parkingImg"
               class="img-top"
@@ -43,9 +43,9 @@
                     amount: parking.price,
                   },
                 }"
-                ><button class="view">View</button></router-link
+                ><button class="view btn btn-warning" >View</button></router-link
               >
-              <button @click="Add2Cart(parking)">Add2Cart</button>
+              <button class="btn btn-info"  @click="Add2Cart(parking)">Add2Cart</button>
             </div>
           </div>
         </div>
@@ -88,17 +88,37 @@ export default {
 </script>
 
 <style scoped>
+.view{
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
 body {
-  background: url(https://images.pexels.com/photos/5182301/pexels-photo-5182301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
-    no-repeat;
+  background-color: rgb(26, 26, 28);
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+.card{
+  background-color: rgb(35, 35, 130);
+  color: white;
+}
+.row{
+  gap: 1rem;
 }
 h2 {
   color: white;
   display: flex;
   justify-content: right;
+}
+svg:hover{
+ transform: scale(1.2);
+}
+@media (width <= 647px) {
+.row{
+  display: grid;
+  justify-content: center;
+  gap: 1rem;
+}
+body{
+  overflow: hidden;
+}
 }
 </style>

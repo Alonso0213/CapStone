@@ -52,7 +52,7 @@ export default createStore({
       );
     },
     SortName(state) {
-      state.parkings.sort((a, b) => a.parkingNum - b.parkingNum);
+      state.parkings.sort((a, b) => a.parkingNum - b.parkingNum );
     },
     SortPrice(state) {
       state.parkings.sort((a, b) => a.price - b.price);

@@ -13,8 +13,11 @@
         Search
       </button>
     </form>
+    <br>
+    <div class="space">
     <button class="sort" @click="SortName">sort by parkingNumber</button>
-    <button class="sort" @click="SortPrice">sort by price</button>
+    <button class="sort1" @click="SortPrice">sort by price</button>
+  </div>
     <parkingComp />
   </div>
 </template>
@@ -41,12 +44,7 @@ export default {
 
 <style scoped>
 .main {
-  background: url(https://images.pexels.com/photos/5182301/pexels-photo-5182301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
-    no-repeat;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgb(26, 26, 28);
 }
 h2 {
   color: white;
@@ -57,5 +55,39 @@ input{
 .d-flex{
   display: flex;
   justify-content: right;
+}
+.sort{
+  background-color: #2d9e9e;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3rem;
+}
+.sort1{
+  background-color: #2d9e9e;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3rem;
+}
+.sort1:hover{
+  background-color: grey;
+  color: white;
+}
+.sort:hover{
+  background-color: grey;
+  color: white;
+}
+.space{
+  display: flex;
+  gap: 1rem;
 }
 </style>

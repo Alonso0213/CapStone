@@ -7,8 +7,8 @@
 <script>
     export default {
     methods: {
-            logOut() {
-                this.$store.dispatch("logOut")
+            Logout() {
+                this.$store.dispatch("Logout")
             }
         },
     }
