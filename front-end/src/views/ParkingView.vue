@@ -1,18 +1,9 @@
 <template>
   <div class="main">
     <h2>Parking</h2>
-    <form class="d-flex" role="search" @submit.prevent="performSearch">
-      <input
-        class="form-control me-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-        v-model="searchTerm"
-      />
-      <button class="btn text-bg-danger btn-outline-success" type="submit">
-        Search
-      </button>
-    </form>
+<form class="d-flex" role="search" @submit.prevent="filterProducts">
+        <input class="form-control me-2" type="search" placeholder="Search Product" aria-label="Search" v-model="searchInput">
+      </form>
     <br>
     <div class="space">
     <button class="sort" @click="SortName">sort by parkingNumber</button>
@@ -29,9 +20,24 @@ export default {
     parkingComp,
   },
   methods: {
-    performSearch() {
-      this.$store.dispatch("searchProducts", this.searchTerm);
+    data() {
+    return {
+      searchInput: "",
+    };
+  },
+  methods: {
+    filterProducts() {
+      const searchQuery = this.searchInput.toLowerCase();
+      return this.$store.state.products.filter((product) => {
+        const productName = product.prodName.toLowerCase();
+        const category = product.Category.toLowerCase();
+        return (
+          productName.includes(searchQuery) || category.includes(searchQuery)
+     
+        );
+      });
     },
+  },
     SortName() {
       this.$store.dispatch("FilterName");
     },
@@ -39,7 +45,17 @@ export default {
       this.$store.dispatch("FilterPrice");
     },
   },
-};
+  computed: {
+    filteredProducts() {
+      if (this.searchInput) {
+        return this.filterProducts();
+      } else {
+        return this.products;
+        
+      }
+    },
+  },
+  }
 </script>
 
 <style scoped>

@@ -17,7 +17,7 @@
       <span></span>
       <span></span>
       <span></span>
-      Submit
+     Log in
    </button>
     <p class="message">Not registered? <a href="#"><router-link to="/register">Create an account</router-link></a></p>
   </form>

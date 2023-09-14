@@ -206,7 +206,7 @@ export default createStore({
             text: `Welcome back ${result?.firstName}
             ${result?.lastName}`,
             icon: "success",
-            timer: 5000,
+            timer: 3000,
           });
           router.push({ name: "home" });
         } else {
@@ -214,7 +214,7 @@ export default createStore({
             title: "Error",
             text: msg,
             icon: "error",
-            timer: 5000,
+            timer: 3000,
           });
         }
       } catch (e) {
