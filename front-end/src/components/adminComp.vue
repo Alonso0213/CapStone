@@ -59,6 +59,7 @@
             <th scope="col">firstName:</th>
             <th scope="col">lastName:</th>
             <th scope="col">userAge:</th>
+            <th scope="col">userRole:</th>
             <th scope="col">userProfile:</th>
             <th scope="col">emailAdd:</th>
             <th scope="col">Edit/Delete:</th>
@@ -70,6 +71,7 @@
             <td>{{ user.firstName }}</td>
             <td>{{ user.lastName }}</td>
             <td>{{ user.userAge }}</td>
+            <td>{{ user.userRole }}</td>
             <td><img class="pic" :src="user.userProfile" alt="img" /></td>
             <td>{{ user.emailAdd }}</td>
             <td>

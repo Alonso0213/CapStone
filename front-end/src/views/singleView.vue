@@ -1,14 +1,13 @@
 <template>
     <body>
       <h2>Parking {{ $route.query.name }}</h2>
-      <div class="card text-center">
+      <div class="card text-center ">
         <div class="card-header">
           <img
             :src="$route.query.img"
             class="card-img-top"
             :alt="$route.query.img"
             style="width: 40rem "
-            
           />
         </div>
   
@@ -43,6 +42,30 @@
   };
   </script>
   
-  <style scoped></style>
+  <style scoped>
+body{
+  background-color: rgb(31, 30, 30);
+  color: white;
+}
+.card{
+  background-color: rgb(31, 30, 30);
+  color: white;
+}
+@media (width <= 669px) {
+.card-img-top{
+  width: 30rem!important;
+}
+}
+@media (width <= 507px) {
+.card-img-top{
+  width: 23rem!important;
+}
+}
+@media (width <= 400px) {
+.card-img-top{
+  width: 15rem!important;
+}
+}
+</style>
 
   

@@ -56,6 +56,7 @@ export default {};
   text-align: center;
 }
 
+
 .logo {
   display: flex;
   justify-content: center;

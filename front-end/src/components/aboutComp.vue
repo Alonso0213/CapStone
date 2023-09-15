@@ -84,7 +84,7 @@
   }
   
   #back{
-    background-color:rgba(45, 18, 163, 0.893);
+background-color: #141e30;
   }
   @media (width <= 620px) {
     .img1{

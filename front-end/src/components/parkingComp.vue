@@ -45,7 +45,7 @@
                 }"
                 ><button class="view btn btn-warning" >View</button></router-link
               >
-              <button class="btn btn-info"  @click="Add2Cart(parking)">Add2Cart</button>
+              <button class="btn btn-info"  @click="Add2Cart(parking)">Book parking</button>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <body class="main container-fluid">
-    <div class="main">
+    <div class="main container-fluid">
     <h2>Checkout</h2>
 
     <div class="tab_container">
@@ -32,7 +32,6 @@
                 <th scope="col">Parking number:</th>
                 <th scope="col">Image:</th>
                 <th scope="col">Amount:</th>
-                <th scope="col">Edit/Delete:</th>
               </tr>
             </thead>
             <tbody
@@ -52,14 +51,6 @@
                   />
                 </td>
                 <td>R{{ park.price }}</td>
-                <td>
-                  <button
-                    @click="confirmDelete(parking.parkingID)"
-                    class="del btn btn-warning"
-                  >
-                    Delete
-                  </button>
-                </td>
               </tr>
             </tbody>
           </table>
@@ -104,10 +95,7 @@
         </center>
       </section>
 
-      <!-- <h3 v-for="park in cart" :key="park.parkingID">
-          <p>{{ park.parkingID }}</p>
-        </h3> -->
-
+      
       <section id="content3" class="tab-content container fluid">
         <h4 class="payment-title">Choose your payment method</h4>
         <form action="" method="post">
@@ -128,6 +116,7 @@
                 <img
                   src="https://www.dropbox.com/s/pycofx0gngss4ef/logo-paypal.png?raw=1"
                   alt="PayPal"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -151,6 +140,7 @@
                   <img
                     src="https://www.dropbox.com/s/by52qpmkmcro92l/logo-visa.png?raw=1"
                     alt="Visa"
+                    loading="lazy"
                   />
                 </div>
                 <div class="select-logo-sub">
@@ -279,7 +269,7 @@ export default {
   box-sizing: border-box;
 }
 .main{
-  
+  height: 150vh;
    background-color: #141e30 ;
 }
 .pic {
@@ -577,16 +567,33 @@ p.credit {
   text-align: center;
   color: #ccc;
 }
-
+@media (width <= 600px) {
+   .main{
+    height: 160vh;
+   }
+  }
+@media (width <= 580px) {
+   .tab_container{
+    width: fit-content;
+   }
+  }
 
 @media (width <= 560px) {
    .tab_container{
     width: fit-content;
    }
+   .main{
+    overflow: hidden;
+    height: 170vh;
+   }
   }
-  @media (width <= 390px) {
+  @media (width <= 414px) {
    .tab_container{
     width:75%;
+   }
+   .main{
+    overflow: hidden;
+    height: 180vh;
    }
   }
    @media (width <= 375px) {
