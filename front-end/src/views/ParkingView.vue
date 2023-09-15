@@ -1,43 +1,23 @@
 <template>
   <div class="main">
-    <h2>Parking</h2>
-<form class="d-flex" role="search" @submit.prevent="filterProducts">
-        <input class="form-control me-2" type="search" placeholder="Search Product" aria-label="Search" v-model="searchInput">
-      </form>
-    <br>
+    <h2>Parking Spots</h2>
+    <br />
     <div class="space">
-    <button class="sort" @click="SortName">sort by parkingNumber</button>
-    <button class="sort1" @click="SortPrice">sort by price</button>
-  </div>
+      <button class="sort" @click="SortName">Sort by Number</button>
+      <button class="sort1" @click="SortPrice">Sort by price</button>
+    </div>
     <parkingComp />
   </div>
 </template>
 
 <script>
+
 import parkingComp from "../components/parkingComp.vue";
 export default {
   components: {
     parkingComp,
   },
   methods: {
-    data() {
-    return {
-      searchInput: "",
-    };
-  },
-  methods: {
-    filterProducts() {
-      const searchQuery = this.searchInput.toLowerCase();
-      return this.$store.state.products.filter((product) => {
-        const productName = product.prodName.toLowerCase();
-        const category = product.Category.toLowerCase();
-        return (
-          productName.includes(searchQuery) || category.includes(searchQuery)
-     
-        );
-      });
-    },
-  },
     SortName() {
       this.$store.dispatch("FilterName");
     },
@@ -45,34 +25,26 @@ export default {
       this.$store.dispatch("FilterPrice");
     },
   },
-  computed: {
-    filteredProducts() {
-      if (this.searchInput) {
-        return this.filterProducts();
-      } else {
-        return this.products;
-        
-      }
-    },
-  },
-  }
+};
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@1,300&family=Anton&family=Chakra+Petch:wght@300&family=Josefin+Sans:wght@100&family=Raleway:ital,wght@1,100&display=swap');
 .main {
   background-color: rgb(26, 26, 28);
 }
 h2 {
   color: white;
+  font-family: Josefin Sans;
 }
-input{
+input {
   width: 30%;
 }
-.d-flex{
+.d-flex {
   display: flex;
   justify-content: right;
 }
-.sort{
+.sort {
   background-color: #2d9e9e;
   border: none;
   color: white;
@@ -83,7 +55,7 @@ input{
   font-size: 16px;
   border-radius: 3rem;
 }
-.sort1{
+.sort1 {
   background-color: #2d9e9e;
   border: none;
   color: white;
@@ -94,15 +66,15 @@ input{
   font-size: 16px;
   border-radius: 3rem;
 }
-.sort1:hover{
+.sort1:hover {
   background-color: grey;
   color: white;
 }
-.sort:hover{
+.sort:hover {
   background-color: grey;
   color: white;
 }
-.space{
+.space {
   display: flex;
   gap: 1rem;
 }

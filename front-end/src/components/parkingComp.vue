@@ -1,5 +1,12 @@
 <template>
   <body class="container-fluid">
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Search parking number"
+      aria-label="Search"
+      v-model="searchInput"
+    />
     <router-link to="/checkout"
       ><h2>
         {{ cart.length }}
@@ -18,8 +25,8 @@
     ></router-link>
     <div class="container-fluid">
       <div class="row" v-if="parkings">
-        <div class="col" v-for="parking in parkings" :key="parking.parkingID">
-          <div class="card " style="width: 18rem">
+        <div class="col" v-for="parking in filteredParkings" :key="parking.parkingID">
+          <div class="card" style="width: 18rem">
             <img
               :src="parking.parkingImg"
               class="img-top"
@@ -43,9 +50,11 @@
                     amount: parking.price,
                   },
                 }"
-                ><button class="view btn btn-warning" >View</button></router-link
+                ><button class="view btn btn-warning">View</button></router-link
               >
-              <button class="btn btn-info"  @click="Add2Cart(parking)">Book parking</button>
+              <button class="btn btn-info" @click="Add2Cart(parking)">
+                Book parking
+              </button>
             </div>
           </div>
         </div>
@@ -63,44 +72,58 @@ export default {
   components: {
     spinnerComp,
   },
-  computed: {
-    parkings() {
-      return this.$store.state.parkings;
-    },
-  },
   mounted() {
     this.$store.dispatch("fetchParkings");
   },
   data: () => {
     return {
       cart: [],
+      searchInput: "",
     };
   },
   methods: {
+    filterparkings() {
+      const searchQuery = this.searchInput
+      return this.$store.state.parkings.filter((parking) => {
+        const parkName = parking.parkingNum.toString();
+        console.log(parkName);
+        return parkName.includes(searchQuery);
+      });
+    },
     Add2Cart(parking) {
       this.cart.push(parking);
       console.log(this.cart);
-      localStorage.setItem("cart", JSON.stringify(this.cart))
-
+      localStorage.setItem("cart", JSON.stringify(this.cart));
+    },
+  },
+  computed: {
+    parkings() {
+      return this.$store.state.parkings;
+    },
+    filteredParkings() {
+      if (this.searchInput) {
+        return this.filterparkings();
+      } else {
+        return this.parkings;
+      }
     },
   },
 };
 </script>
 
 <style scoped>
-.view{
+.view {
   background-color: rgb(0, 0, 0);
   color: white;
 }
 body {
   background-color: rgb(26, 26, 28);
-
 }
-.card{
+.card {
   background-color: rgb(35, 35, 130);
   color: white;
 }
-.row{
+.row {
   gap: 1rem;
 }
 h2 {
@@ -108,17 +131,17 @@ h2 {
   display: flex;
   justify-content: right;
 }
-svg:hover{
- transform: scale(1.2);
+svg:hover {
+  transform: scale(1.2);
 }
 @media (width <= 647px) {
-.row{
-  display: grid;
-  justify-content: center;
-  gap: 1rem;
-}
-body{
-  overflow: hidden;
-}
+  .row {
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+  }
+  body {
+    overflow: hidden;
+  }
 }
 </style>

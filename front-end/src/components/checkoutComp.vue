@@ -1,248 +1,253 @@
 <template>
   <body class="main container-fluid">
     <div class="main container-fluid">
-    <h2>Checkout</h2>
+      <h2>Checkout</h2>
 
-    <div class="tab_container">
-      <input id="tab1" type="radio" name="tabs" checked />
-      <label for="tab1"
-        ><span class="numberCircle">1</span><span>Cart</span></label
-      >
+      <div class="tab_container">
+        <input id="tab1" type="radio" name="tabs" checked />
+        <label for="tab1"
+          ><span class="numberCircle">1</span><span>Cart</span></label
+        >
 
-      <input id="tab2" type="radio" name="tabs" />
-      <label for="tab2"
-        ><span class="numberCircle">2</span
-        ><span>Customer Information</span></label
-      >
+        <input id="tab2" type="radio" name="tabs" />
+        <label for="tab2"
+          ><span class="numberCircle">2</span
+          ><span>Customer Information</span></label
+        >
 
-      <input id="tab3" type="radio" name="tabs" />
-      <label for="tab3"
-        ><span class="numberCircle">3</span><span>Payment</span></label
-      >
+        <input id="tab3" type="radio" name="tabs" />
+        <label for="tab3"
+          ><span class="numberCircle">3</span><span>Payment</span></label
+        >
 
-      <section id="content1" class="tab-content" checked>
-        <button class="del btn btn-warning" @click="clearCart">Clear cart</button>
-        <div class="table table-responsive-xxl">
-          <table
-            class="table border-info table-dark table-hover table-bordered bg-danger-subtle"
-          >
-            <thead>
-              <tr>
-                <th scope="col">ID:</th>
-                <th scope="col">Parking number:</th>
-                <th scope="col">Image:</th>
-                <th scope="col">Amount:</th>
-              </tr>
-            </thead>
-            <tbody
-              v-for="park in cart"
-              id="display-items"
-              :key="park.parkingID"
+        <section id="content1" class="tab-content" checked>
+          <button class="del btn btn-warning" @click="clearCart">
+            Clear cart
+          </button>
+          <div class="table table-responsive-xxl">
+            <table
+              class="table border-info table-dark table-hover table-bordered bg-danger-subtle"
             >
-              <tr>
-                <td>{{ park.parkingID }}</td>
-                <td>{{ park.parkingNum }}</td>
-                <td>
-                  <img
-                    class="pic"
-                    :src="park.parkingImg"
-                    alt="img"
-                    loading="lazy"
-                  />
-                </td>
-                <td>R{{ park.price }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+              <thead>
+                <tr>
+                  <th scope="col">ID:</th>
+                  <th scope="col">Parking number:</th>
+                  <th scope="col">Image:</th>
+                  <th scope="col">Amount:</th>
+                </tr>
+              </thead>
+              <tbody
+                v-for="park in cart"
+                id="display-items"
+                :key="park.parkingID"
+              >
+                <tr>
+                  <td>{{ park.parkingID }}</td>
+                  <td>{{ park.parkingNum }}</td>
+                  <td>
+                    <img
+                      class="pic"
+                      :src="park.parkingImg"
+                      alt="img"
+                      loading="lazy"
+                    />
+                  </td>
+                  <td>R{{ park.price }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-      <section id="content2" class="tab-content">
-        <h3>Customer Information</h3>
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm"
-            >First Name</span
-          >
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-sm"
-          />
-        </div>
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Adress</span>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-sm"
-          />
-        </div>
-        <div class="input-group input-group-sm mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-sm">E-mail</span>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-sm"
-          />
-        </div>
-        <center>
-          <div class="button-container button-finish">
-            <a href="#tab3" type="radio" name="tabs">Next</a>
+        <section id="content2" class="tab-content">
+          <h3>Customer Information</h3>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm"
+              >First Name</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm"
+            />
           </div>
-        </center>
-      </section>
-
-      
-      <section id="content3" class="tab-content container fluid">
-        <h4 class="payment-title">Choose your payment method</h4>
-        <form action="" method="post">
-          <div class="pymt-radio">
-            <div class="row-payment-method payment-row">
-              <div class="select-icon">
-                <input type="radio" id="radio1" name="radios" value="pp" />
-                <label for="radio1"></label>
-              </div>
-              <div class="select-txt">
-                <p class="pymt-type-name">Paypal</p>
-                <p class="pymt-type-desc">
-                  Safe payment online. Credit card needed. PayPal account is not
-                  necessary.
-                </p>
-              </div>
-              <div class="select-logo">
-                <img
-                  src="https://www.dropbox.com/s/pycofx0gngss4ef/logo-paypal.png?raw=1"
-                  alt="PayPal"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm"
+              >Adress</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm"
+            />
           </div>
-          <div class="pymt-radio">
-            <div class="row-payment-method payment-row-last">
-              <div class="select-icon hr">
-                <input type="radio" id="radio2" name="radios" value="pp" />
-                <label for="radio2"></label>
-              </div>
-              <div class="select-txt hr">
-                <p class="pymt-type-name">Credit Card</p>
-                <p class="pymt-type-desc">
-                  Safe money transfer using your bank account. Safe payment
-                  online. Credit card needed. Visa, Maestro, Discover, American
-                  Express
-                </p>
-              </div>
-              <div class="select-logo">
-                <div class="select-logo-sub logo-spacer">
-                  <img
-                    src="https://www.dropbox.com/s/by52qpmkmcro92l/logo-visa.png?raw=1"
-                    alt="Visa"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="select-logo-sub">
-                  <img
-                    src="https://www.dropbox.com/s/6f5dorw54xomw7p/logo-mastercard.png?raw=1"
-                    alt="MasterCard"
-                  />
-                </div>
-              </div>
-            </div>
+          <div class="input-group input-group-sm mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-sm"
+              >E-mail</span
+            >
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm"
+            />
           </div>
-          <div class="form-cc">
-            <div class="row-cc">
-              <div class="cc-field">
-                <div class="cc-title">Credit Card Number</div>
-                <input
-                  type="text"
-                  class="input cc-txt text-validated"
-                  value=""
-                  placeholder="4542 xxxx xxxx xx93"
-                />
-              </div>
-            </div>
-            <div class="row-cc">
-              <div class="cc-field">
-                <div class="cc-title">Expiry Date</div>
-                <select class="input cc-ddl">
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                </select>
-                <select class="input cc-ddl">
-                  <option>01</option>
-                  <option>02</option>
-                  <option>03</option>
-                  <option>04</option>
-                  <option>05</option>
-                  <option>06</option>
-                  <option>07</option>
-                  <option>08</option>
-                  <option>09</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                  <option>13</option>
-                  <option>14</option>
-                  <option>15</option>
-                  <option>16</option>
-                  <option>17</option>
-                  <option>18</option>
-                  <option>19</option>
-                  <option>20</option>
-                  <option>21</option>
-                  <option>22</option>
-                  <option>23</option>
-                  <option>24</option>
-                  <option>25</option>
-                  <option>26</option>
-                  <option>27</option>
-                  <option>28</option>
-                  <option>29</option>
-                  <option>30</option>
-                  <option>31</option>
-                </select>
-              </div>
-              <div class="cc-field">
-                <div class="cc-title">
-                  CVV Code<span class="numberCircle">?</span>
-                </div>
-                <input type="text" class="input cc-txt" />
-              </div>
-            </div>
-            <div class="row-cc">
-              <div class="cc-field">
-                <div class="cc-title">Name on Card</div>
-                <input type="text" class="input cc-txt" />
-              </div>
-            </div>
-          </div>
-          <div class="button-master-container">
+          <center>
             <div class="button-container button-finish">
-              <a href="#">Finish Order</a>
+              <a href="#tab3" type="radio" name="tabs">Next</a>
             </div>
-          </div>
-        </form>
-      </section>
+          </center>
+        </section>
+
+        <section id="content3" class="tab-content container fluid">
+          <h4 class="payment-title">Choose your payment method</h4>
+          <form action="" method="post">
+            <div class="pymt-radio">
+              <div class="row-payment-method payment-row">
+                <div class="select-icon">
+                  <input type="radio" id="radio1" name="radios" value="pp" />
+                  <label for="radio1"></label>
+                </div>
+                <div class="select-txt">
+                  <p class="pymt-type-name">Paypal</p>
+                  <p class="pymt-type-desc">
+                    Safe payment online. Credit card needed. PayPal account is
+                    not necessary.
+                  </p>
+                </div>
+                <div class="select-logo">
+                  <img
+                    src="https://www.dropbox.com/s/pycofx0gngss4ef/logo-paypal.png?raw=1"
+                    alt="PayPal"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="pymt-radio">
+              <div class="row-payment-method payment-row-last">
+                <div class="select-icon hr">
+                  <input type="radio" id="radio2" name="radios" value="pp" />
+                  <label for="radio2"></label>
+                </div>
+                <div class="select-txt hr">
+                  <p class="pymt-type-name">Credit Card</p>
+                  <p class="pymt-type-desc">
+                    Safe money transfer using your bank account. Safe payment
+                    online. Credit card needed. Visa, Maestro, Discover,
+                    American Express
+                  </p>
+                </div>
+                <div class="select-logo">
+                  <div class="select-logo-sub logo-spacer">
+                    <img
+                      src="https://www.dropbox.com/s/by52qpmkmcro92l/logo-visa.png?raw=1"
+                      alt="Visa"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="select-logo-sub" checked >
+                    <img
+                      src="https://www.dropbox.com/s/6f5dorw54xomw7p/logo-mastercard.png?raw=1"
+                      alt="MasterCard"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-cc">
+              <div class="row-cc">
+                <div class="cc-field">
+                  <div class="cc-title">Credit Card Number</div>
+                  <input
+                    type="text"
+                    class="input cc-txt text-validated"
+                    value=""
+                    placeholder="4542 xxxx xxxx xx93"
+                  />
+                </div>
+              </div>
+              <div class="row-cc">
+                <div class="cc-field">
+                  <div class="cc-title">Expiry Date</div>
+                  <select class="input cc-ddl">
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                  <select class="input cc-ddl">
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                </div>
+                <div class="cc-field">
+                  <div class="cc-title">
+                    CVV Code<span class="numberCircle">?</span>
+                  </div>
+                  <input type="text" class="input cc-txt" />
+                </div>
+              </div>
+              <div class="row-cc">
+                <div class="cc-field">
+                  <div class="cc-title">Name on Card</div>
+                  <input type="text" class="input cc-txt" />
+                </div>
+              </div>
+            </div>
+            <div class="button-master-container">
+              <div class="button-container button-finish">
+                <button type="button" @click="submit"  class="del btn btn-warning">Finish Order</button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
     </div>
-  </div>
   </body>
-    
 </template>
 
 <script>
+import sweet from "sweetalert";
 export default {
   components: {},
   computed: {
@@ -256,7 +261,20 @@ export default {
       location.reload();
     },
   },
-  methods: {},
+  methods: {
+    submit() {
+      sweet({
+        title: "Booking has been made",
+        icon: "success",
+        timer: 4000,
+      }),
+        setTimeout(() => {
+          location.reload();
+          const computedValue = this.clearCart;
+          console.log(` ${computedValue}`);
+        }, 4000);
+    },
+  },
 };
 </script>
 
@@ -268,9 +286,9 @@ export default {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.main{
+.main {
   height: 150vh;
-   background-color: #141e30 ;
+  background-color: #141e30;
 }
 .pic {
   width: 7rem;
@@ -403,7 +421,6 @@ label:hover {
   margin-right: 30px;
   width: 100%;
 }
-
 
 .select-icon {
   display: table-cell;
@@ -568,37 +585,41 @@ p.credit {
   color: #ccc;
 }
 @media (width <= 600px) {
-   .main{
+  .main {
     height: 160vh;
-   }
   }
+}
 @media (width <= 580px) {
-   .tab_container{
+  .tab_container {
     width: fit-content;
-   }
   }
+}
 
 @media (width <= 560px) {
-   .tab_container{
+  .tab_container {
     width: fit-content;
-   }
-   .main{
+  }
+  .main {
     overflow: hidden;
     height: 170vh;
-   }
   }
-  @media (width <= 414px) {
-   .tab_container{
-    width:75%;
-   }
-   .main{
+}
+@media (width <= 414px) {
+  .tab_container {
+    width: 75%;
+  }
+  .main {
     overflow: hidden;
-    height: 180vh;
-   }
+    height: 200vh;
   }
-   @media (width <= 375px) {
-   .input[data-v-1ab4eb05]{
+}
+@media (width <= 375px) {
+  .input[data-v-1ab4eb05] {
     width: 95%;
-   }
   }
+  .main {
+    overflow: hidden;
+    height: 240vh;
+  }
+}
 </style>

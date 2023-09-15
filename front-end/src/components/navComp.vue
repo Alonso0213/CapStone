@@ -25,7 +25,7 @@
             <router-link to="/parking">Parking</router-link>
             
             <router-link to="/contact">Contact</router-link>
-            <router-link to="/admin">Admin</router-link>
+            <router-link to="/admin" v-show="ifAdmin()">Admin</router-link>
            
           </li>
         </ul>
@@ -52,7 +52,24 @@
 </template>
 
 <script>
-export default {};
+import { useCookies } from 'vue3-cookies'
+const {cookies} = useCookies()
+export default {
+  methods: {
+     ifAdmin() {
+      return this.results?.userRole?.toLowerCase() === "admin"
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.user||cookies.get('LegitUser')
+    },
+    results() {
+      return this.user?.result
+    },
+   
+  }
+};
 </script>
 
 <style scoped>
