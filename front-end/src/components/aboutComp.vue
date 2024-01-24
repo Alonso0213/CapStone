@@ -8,7 +8,7 @@
           <div class="col">
             <img
               class="img1 animate__animated animate__flipInX"
-              src="https://i.postimg.cc/BbsMVd9L/parking-lot-with-many-cars-one-that-says-car-parking-it-883586-1139.jpg"
+              src="https://i.ibb.co/p0hWQL7/4a30772e96d7352a26414cd60de33655.gif"
               alt="img"
               loading="lazy"
             />
@@ -27,7 +27,7 @@
           <div class="col">
             <img
               class="img1"
-              src="https://i.postimg.cc/3JyrGLng/parkingg.gif"
+              src="https://i.ibb.co/zS1BSWR/istockphoto-519196006-612x612.jpg"
               alt="img"
               loading="lazy"
             />
