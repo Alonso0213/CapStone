@@ -13,7 +13,7 @@
       <center>
         <img
           class="logo"
-          src="https://i.postimg.cc/MKd2843m/Pics-Art-08-30-12-51-50.jpg"
+          src="https://i.ibb.co/MM7cccT/Pics-Art-08-30-12-51-50-1.jpg"
           alt="logo"
         />
       </center>
