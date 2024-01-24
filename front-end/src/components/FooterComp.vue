@@ -25,13 +25,13 @@
       <div class="socails">
         <a href="#">
           <img
-            src="https://i.postimg.cc/PJjw68bK/2021-Facebook-icon-svg.png"
+            src="https://i.ibb.co/pvb7jYt/Facebook-Logo-2019.png"
             loading="lazy"
             alt="icon"
         /></a>
         <a href="#"
           ><img
-            src="https://i.postimg.cc/TPKghxYj/instagram-icon-logo-free-png.webp"
+            src="https://i.ibb.co/YZdjT6m/1491579602-yumminkysocialmedia36-83067.png"
             loading="lazy"
             alt="icon"
         /></a>
